@@ -8,17 +8,9 @@ class Actor < ActiveRecord::Base
   end
 
   def list_roles
-
-    arr = self.characters.map do |character|
-      character.name
+    self.characters.map do |character|
+      "#{character.name} - #{character.show.name}"
     end
-
-    i = 0
-    self.characters.each do |character|
-        arr[i] += " - #{character.show.name}"
-        i += 1
-    end
-    return arr
   end
 
 end
